@@ -11,9 +11,8 @@ module.exports = {
   devServer: {
     contentBase: 'src/public',
     historyApiFallback: true,
-    port: 8080,
+    port: 8000,
     host: '0.0.0.0',
-    public: 'ec2-35-183-116-111.ca-central-1.compute.amazonaws.com',
   },
   devtool: 'eval',
   output: {
@@ -41,7 +40,7 @@ module.exports = {
     ], '.'),
     new webpack.DefinePlugin({
       'process.env': {
-        ENDPOINT: JSON.stringify(process.env.ENDPOINT || 'http://ec2-35-183-116-111.ca-central-1.compute.amazonaws.com/:9000/api'),
+        ENDPOINT: JSON.stringify(process.env.ENDPOINT || 'http://0.0.0.0:9000/api'),
       },
     }),
   ],
