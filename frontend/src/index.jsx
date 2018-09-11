@@ -12,6 +12,7 @@ const API_KEY = 'b533b7267d4b094f1270dcffaedf0bca';
 const baseURL = "http://api.openweathermap.org/data/2.5";
 
 class Weather extends React.Component {
+  //define the initial empty state of the class  
   constructor(props) {
     super(props);
     this.state = {
@@ -54,7 +55,8 @@ class Weather extends React.Component {
       loading: false
     }
   }
-
+  // Make function to call and navigate the current position of the geolocation
+  // executed to make sure it run once
   askLocation() {
     if (navigator.geolocation && this.state.executed == 0) {
       this.setState({
@@ -69,11 +71,11 @@ class Weather extends React.Component {
       });
     }
   }
-
+// Make sure that function only execute when the class is rendered on the UI
   componentDidMount() {
     this.askLocation();
   }
-
+  // async function always returns a promise, and await makes JS wait until that promise settles and returns its result
   async commonCall(apiToCall) {
     try {
       console.log(apiToCall);
